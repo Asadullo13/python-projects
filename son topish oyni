@@ -1,0 +1,51 @@
+import random as r
+print("keling o'ylagan sonni topish o'ynini o'ynaymiz")
+def son_top(x=10):
+    kom = r.randint(1, x)
+    tahminlar = 0
+    while True:
+        tahminlar += 1
+        men = int(input(f"1 dan {x} gach bolgan son oyladim topa olasizmi?"))
+        if men < kom:
+            print("men oylagan son bundan kattaroq")
+        elif men > kom:
+            print("men oylagan son bundan  kichikroq")
+        else:
+            break
+    print(f"ha men oylagan son {kom}, siz {tahminlar} ta urinish bilan topdingiz!")
+    return tahminlar
+
+def son_top_kom(x=10):
+    input("siz son oylang men topishga harakat qilaman")
+    quyi = 1
+    yuqori = x
+    tahminlar =0
+    while True:
+        tahminlar +=1
+        if quyi != yuqori:
+            tahmin = r.randint(quyi,yuqori)
+        else:
+            tahmin = quyi
+        javob = input(f"siz oylagan son {tahmin} togri bolsa t,kattaroq bolsa +, kichikroq bolsa, - ")
+        if javob == "-":
+            yuqori = tahmin -1
+        elif javob == "+":
+            quyi = tahmin +1
+        else:
+            break
+    print("topdim")
+    return tahminlar
+def play(x=10):
+    yana = True
+    while yana:
+        tahmin_user = son_top(x)
+        tahmin_kom = son_top_kom(x)
+        if tahmin_user>tahmin_kom:
+            print("men yutdim")
+        elif tahmin_user<tahmin_kom:
+            print("komyuter yutdi")
+        else:
+            print("durang")
+        yana = int(input("yana oynaysizmi ha(1),yoq(0)"))
+play()
+
